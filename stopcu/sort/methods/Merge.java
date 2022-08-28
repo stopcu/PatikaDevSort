@@ -7,6 +7,8 @@ public class Merge implements ISort {
 
     private static Merge instance = null;
 
+    private int count = 1;
+
     private Merge() {
     }
 
@@ -19,13 +21,17 @@ public class Merge implements ISort {
     @Override
     public Integer[] sort(Integer[] array) {
 
+        System.out.println("Source Array: " + Arrays.toString(array));
+
+        System.out.println("1. Iterations:");
+
         Integer[] resultArray = Arrays.copyOf(array, array.length);
 
         mergeSort(resultArray, array.length);
 
-        System.out.println(Arrays.toString(resultArray));
+        System.out.println("2. Big-O: O(n * log(n))");
 
-        return null;
+        return resultArray;
     }
 
     private void mergeSort(Integer[] array, int length) {
@@ -52,6 +58,10 @@ public class Merge implements ISort {
         mergeSort(right, rightLenght);
 
         merge(array, left, right, leftLenght, rightLenght);
+
+        System.out.println("    " + count + ". " + Arrays.toString(array));
+
+        count += 1;
 
     }
 
