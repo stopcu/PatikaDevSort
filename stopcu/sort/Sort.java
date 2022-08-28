@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 import stopcu.sort.methods.ESortMethodType;
 import stopcu.sort.methods.Insertion;
+import stopcu.sort.methods.Merge;
 
 public class Sort {
     
@@ -20,8 +21,10 @@ public class Sort {
         switch (sortMethodType) {
             case INSERTION:
                 return Insertion.getInstance().sort(sourceArray);
+            case MERGE:
+                return Merge.getInstance().sort(sourceArray);
             default:
-                return null;
+                return Insertion.getInstance().sort(sourceArray);
         }
     }
 
